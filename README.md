@@ -9,7 +9,7 @@ The purpose of this project is to demonstrate an apparent inability to execute [
 *CalcSpec.groovy*: A Spock test class to exercise the class in Calc.groovy
 
 ## Running
-I tested this code using Groovy 2.4.7 (installed via [SDKman](http://sdkman.io/)). All other dependencies are specified in the .groovy files as `@Grab`'s.
+I tested this code using [Groovy](http://www.groovy-lang.org/) 2.4.7 (installed via [SDKman](http://sdkman.io/)). All other dependencies are specified in the .groovy files as `@Grab`'s.
 
 *Executing the sample program*
 
