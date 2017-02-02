@@ -1,10 +1,12 @@
 # SpiesAndGpars
-The purpose of this project is to demonstrate an apparent inability to execute GPars .eachParallel from an object which is a Spock "Spy".
+The purpose of this project is to demonstrate an apparent inability to execute [GPars](http://www.gpars.org/guide/guide/dataParallelism.html) .eachParallel from an object which is a [Spock](http://docs.spockframework.org) "Spy".
 
 ## The files
-Calc.groovy: A simple calculator to track a running sum. Add a single int or a list of ints.
-CalcRun.groovy: Simple demonstration of using the class in Calc.groovy.
-CalcSpec.groovy: A Spock test class to exercise the class in Calc.groovy
+*Calc.groovy*: A simple calculator to track a running sum. Add a single int or a list of ints.
+
+*CalcRun.groovy*: Simple demonstration of using the class in Calc.groovy.
+
+*CalcSpec.groovy*: A Spock test class to exercise the class in Calc.groovy
 
 ## Running
 I tested this code using Groovy 2.4.7 (installed via [SDKman](http://sdkman.io/)). All other dependencies are specified in the .groovy files as `@Grab`'s.
