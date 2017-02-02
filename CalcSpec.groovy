@@ -63,7 +63,7 @@ class CalcSpec extends Specification {
      * Test add a single then add a list (parallel).
      * FAILS. Mix of spy and gpars .eachParallel hangs.
      */
-    //@Ignore
+    @Ignore
     void "Test with calc as spy, add a number and a list of numbers (parallel)"() {
         setup:
         calc = Spy(Calc)
