@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 Calc calc = new Calc()
 println calc.add(5)
-println calc.addListParallel([10,20,30])
+println calc.addListParallelExecutors([10,20,30])
