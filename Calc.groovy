@@ -38,7 +38,7 @@ class Calc {
     }
 
     /**
-     * Add to list, with gpars parallel.
+     * Add to list, with gpars thread pool.
      */
     Integer addListParallelGpars(List<Integer> nList) {
         GParsPool.withPool(5) {
@@ -49,6 +49,9 @@ class Calc {
         return res.get()
     }
 
+    /**
+     * Add to list, with executors thread pool.
+     */
     Integer addListParallelExecutors(List<Integer> nList) {
         def threadPool = Executors.newFixedThreadPool(1)
         try {
