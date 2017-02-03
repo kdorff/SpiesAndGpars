@@ -7,6 +7,9 @@ import java.util.concurrent.Future
 
 import java.util.concurrent.atomic.AtomicInteger
 
+/**
+ * Simple demonstration class to keep a running sum.
+ */
 class Calc {
     AtomicInteger res
 
@@ -18,17 +21,19 @@ class Calc {
     }
 
     /**
-     * Add single item to list. Also used by addList*() methods.
-     * THIS needs to be thread safe.
-     * @param n the item to add to list
-     * @return the current value
+     * Add single number to the running sum. Also used by addList*() methods.
+     * THIS method must be thread safe.
+     * @param n the number to add to add to the running sum
+     * @return the running sum
      */
     Integer add(Integer n) {
         return res.addAndGet(n)
     }
 
     /**
-     * Add to list, non parallel.
+     * Add list of numbers to running sum, non-parallel.
+     * @param nList the list of numbers to add to the running sum
+     * @return the running sum
      */
     Integer addList(List<Integer> nList) {
         nList.each { Integer n ->
@@ -38,7 +43,9 @@ class Calc {
     }
 
     /**
-     * Add to list, with gpars thread pool.
+     * Add list of numbers to running sum, with gpars thread pool.
+     * @param nList the list of numbers to add to the running sum
+     * @return the running sum
      */
     Integer addListParallelGpars(List<Integer> nList) {
         GParsPool.withPool(5) {
@@ -50,10 +57,12 @@ class Calc {
     }
 
     /**
-     * Add to list, with executors thread pool.
+     * Add list of numbers to running sum, with executors thread pool.
+     * @param nList the list of numbers to add to the running sum
+     * @return the running sum
      */
     Integer addListParallelExecutors(List<Integer> nList) {
-        def threadPool = Executors.newFixedThreadPool(1)
+        ExecutorService threadPool = Executors.newFixedThreadPool(5)
         try {
             List<Future> futures = nList.collect { Integer n ->
                 threadPool.submit({
